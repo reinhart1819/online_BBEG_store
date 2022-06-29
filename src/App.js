@@ -1,18 +1,20 @@
-import logo from "./logo.svg";
 import "./App.css";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
+import Catalog from "./components/catalog";
 import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import About from "./components/about";
 
 function App() {
   return (
-    <React.Fragment>
-      <div className="App">
-        <Navbar></Navbar>
-        <h1>Welcome to the Monster Shop</h1>
-      </div>
+    <div className="App container-fluid">
+      <Navbar></Navbar>
+      <h1>Welcome to The BBEG Shop</h1>
+      <Catalog></Catalog>
+      <About></About>
       <Footer></Footer>
-    </React.Fragment>
+    </div>
   );
 }
 

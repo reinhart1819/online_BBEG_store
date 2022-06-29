@@ -1,0 +1,17 @@
+.catalog h2{
+    color: chocolate;
+    text-align: center;
+}
+.catalog h3{
+    text-align: center;
+}
+.products-container{
+    display: grid;    
+    grid-template-columns: repeat(3, 1fr);
+   
+}
+@media (max-width: 768px) {
+    .products-container{
+        grid-template-columns: repeat(1,1fr);
+    }
+}

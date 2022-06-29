@@ -1,0 +1,4 @@
+.quanityPicker button, .quanityPicker label{
+    display: inline-block;
+    margin: 3px;
+}
