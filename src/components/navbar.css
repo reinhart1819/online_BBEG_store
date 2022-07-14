@@ -1,4 +1,4 @@
-.navbar h1{
-    color: red;
-    background-color: teal;
+.navbar{
+    background: rgb(0, 0, 0);
+    background: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgb(186, 0, 0) 60%);
 }

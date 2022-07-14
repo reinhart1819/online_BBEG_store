@@ -5,15 +5,25 @@ import Catalog from "./components/catalog";
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import About from "./components/about";
+import Home from "./components/home";
+import Cart from "./components/cart";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <div className="App container-fluid">
-      <Navbar></Navbar>
-      <h1>Welcome to The BBEG Shop</h1>
-      <Catalog></Catalog>
-      <About></About>
-      <Footer></Footer>
+      <BrowserRouter>
+        <Navbar></Navbar>
+
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/catalog" element={<Catalog />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/cart" element={<Cart />} />
+        </Routes>
+
+        <Footer></Footer>
+      </BrowserRouter>
     </div>
   );
 }
