@@ -1,17 +1,26 @@
 import React from "react";
 import "./product.css";
-import QuanityPicker from "./quanityPicker";
-import { useState } from "react";
+import QuantityPicker from "./quantityPicker";
+import { useState, useContext } from "react";
+import StoreContext from "../context/storeContext";
 
 const Product = (props) => {
-  let [quanity, setQuanity] = useState(1);
+  let [quantity, setQuantity] = useState(1);
+  let globalAddProd = useContext(StoreContext).addProduct;
+
   const quantityChange = (val) => {
-    setQuanity(val);
+    setQuantity(val);
   };
 
   const getTotal = () => {
-    let total = props.data.price * quanity;
+    let total = props.data.price * quantity;
     return total.toFixed(2);
+  };
+
+  const handleAdd = () => {
+    let prod4Cart = { ...props.data, quantity };
+
+    globalAddProd(prod4Cart);
   };
 
   return (
@@ -20,8 +29,10 @@ const Product = (props) => {
       <h2>{props.data.title}</h2>
       <label>Price: {props.data.price.toFixed(2)} Thousand gp</label>
       <label>Total: {getTotal()} Thousand gp</label>
-      <QuanityPicker onChange={quantityChange}></QuanityPicker>
-      <button className="btn btn-primary btn-sm">Add</button>
+      <QuantityPicker onChange={quantityChange}></QuantityPicker>
+      <button onClick={handleAdd} className="btn btn-primary btn-sm">
+        Add
+      </button>
     </div>
   );
 };

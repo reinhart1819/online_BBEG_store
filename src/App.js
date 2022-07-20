@@ -8,22 +8,27 @@ import About from "./components/about";
 import Home from "./components/home";
 import Cart from "./components/cart";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Admin from "./components/admin";
+import GlobalState from "./context/globalState";
 
 function App() {
   return (
     <div className="App container-fluid">
-      <BrowserRouter>
-        <Navbar></Navbar>
+      <GlobalState>
+        <BrowserRouter>
+          <Navbar></Navbar>
 
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/catalog" element={<Catalog />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/cart" element={<Cart />} />
-        </Routes>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/catalog" element={<Catalog />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/admin" element={<Admin />} />
+          </Routes>
 
-        <Footer></Footer>
-      </BrowserRouter>
+          <Footer></Footer>
+        </BrowserRouter>
+      </GlobalState>
     </div>
   );
 }
