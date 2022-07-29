@@ -1,5 +1,6 @@
 import "./admin.css";
 import { useState } from "react";
+import DataService from "../services/dataService";
 
 const Admin = () => {
   const [coupon, setCoupon] = useState({});
@@ -41,6 +42,9 @@ const Admin = () => {
     let copy = { ...product };
     copy.price = parseFloat(copy.price);
     console.log(copy);
+
+    let service = new DataService();
+    service.saveProduct(copy);
 
     let copyAllProds = [...allProducts];
     copyAllProds.push(copy);
